@@ -75,3 +75,6 @@ function unique(arr) {
   const seen = new Map()
   return arr.filter(a => !seen.has(a) && seen.set(a, 1));
 }
+
+// indexOf + filter
+const unique = arr => arr.filter((e, i) => arr.indexOf(e) === i)

@@ -22,11 +22,15 @@ Function.prototype.call = function (context) {
 }
 
 Function.prototype.call = function (context, ...args) {
+  if (this === Function.prototype) {
+    return undefined; // 用于防止 Function.prototype.call() 直接调用
+  }
   context = context || window;
   let fn = Symbol('fn');
   context[fn] = this;
 
-  const result = eval('context.fn(...args)')
+  // const result = eval('context.fn(...args)')
+  const result = context[fn](...args);
   delete context[fn]
   return result;
 }
