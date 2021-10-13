@@ -39,3 +39,16 @@ function debounce(func, wait, immediate) {
 
   return debounced;
 }
+
+function debounce(event, time, immediate) {
+  let timer = null
+  return function(...args) {
+    clearTimeout(timer)
+    if (!timer && immediate) {
+      event.apply(this, args)
+    }
+    timer = setTimeout(() => {
+      event.apply(this, args)
+    }, time);
+  }
+}
