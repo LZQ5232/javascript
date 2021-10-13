@@ -65,7 +65,6 @@
       }
 
       var emitter = new EventEmitter()
-      debugger
 
       var onceListener = function (args) {
         console.log('我只能被执行一次', args, this)
@@ -84,5 +83,6 @@
       emitter.removeEventListener('click', listener)
       emitter.emit('click')
     </script>
+    <script src="./数组乱序-洗牌算法.js"></script>
   </body>
 </html>
